@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>my angular way</title>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="src/app.js"></script>
+	<script src="src/ctrl.js"></script>
+</head>
+<body>
+	<ul ng-controller="WorldCtrl">
+		<li ng-repeat="country in countries">
+			{{country.name}} has population of {{country.population}}
+			{{worldsPercentage(country.population)}} % of the world's
+		</li>
+		<hr>
+		world's population: {{population}} millions
+	</ul>
+</body>
+</html>
