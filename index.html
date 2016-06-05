@@ -2,28 +2,25 @@
 <html ng-app="myApp" lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>my angular way</title>
+	<title>demo01 声明式编程风格</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="src/app.js"></script>
 	<script src="src/ctrl.js"></script>
 </head>
-<body ng-init = "name = 'World'">
-	<h1>Hello,{{name}}</h1>
-	<div ng-controller="HelloCtrl">
-		Say hello to: <input type="text" ng-model="name">
-		<h2>Hello, {{name}}</h2>
+<body>
+	<div class="container" ng-controller="TextAreaWithLimitCtrl">
+	  <span ng-class="{'text-danger' : shouldWarn()}">Remaining: {{remaining()}}</span>
+		<div class="row">
+			<textarea ng-model="message"></textarea>
+		</div>
+		<div class="row">
+			<button class="btn btn-primary" ng-disabled="!hasValidLength()" ng-click="send()">send</button>
+			<button class="btn btn-warning" ng-click="clear()">clear</button>
+		</div>
 	</div>
 </body>
-
-<!-- 这个例子中，controller中并没有定义name，所以，name继承于init初始化的scope -->
-<!-- 当输入新的内容，会在子作用域上新建一个name属性，并不会修改原name属性 -->
-<!-- 解决这种问题，做法如下，使用引用类型，如对象，保存为一个属性，这样就能寻到父作用域上的值并修改 -->
-
-<!-- <body ng-init = "name = { n: 'World'}">
-	<h1>Hello,{{name.n}}</h1>
-	<div ng-controller="HelloCtrl">
-		Say hello to: <input type="text" ng-model="name.n">
-		<h2>Hello, {{name.n}}</h2>
-	</div>
-</body> -->
 </html>
