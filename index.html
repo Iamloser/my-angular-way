@@ -7,14 +7,19 @@
 	<script src="src/app.js"></script>
 	<script src="src/ctrl.js"></script>
 </head>
-<body>
-	<ul ng-controller="WorldCtrl">
-		<li ng-repeat="country in countries">
-			{{country.name}} has population of {{country.population}}
-			{{worldsPercentage(country.population)}} % of the world's
-		</li>
-		<hr>
-		world's population: {{population}} millions
-	</ul>
+<body ng-init = "name = 'World'">
+	<h1>Hello,{{name}}</h1>
+	<div ng-controller="HelloCtrl">
+		Say hello to: <input type="text" ng-model="name">
+		<h2>Hello, {{name}}</h2>
+	</div>
 </body>
+
+<!-- <body ng-init = "name = { n: 'World'}">
+	<h1>Hello,{{name.n}}</h1>
+	<div ng-controller="HelloCtrl">
+		Say hello to: <input type="text" ng-model="name.n">
+		<h2>Hello, {{name.n}}</h2>
+	</div>
+</body> -->
 </html>
