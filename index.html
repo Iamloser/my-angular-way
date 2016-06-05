@@ -15,6 +15,10 @@
 	</div>
 </body>
 
+<!-- 这个例子中，controller中并没有定义name，所以，name继承于init初始化的scope -->
+<!-- 当输入新的内容，会在子作用域上新建一个name属性，并不会修改原name属性 -->
+<!-- 解决这种问题，做法如下，使用引用类型，如对象，保存为一个属性，这样就能寻到父作用域上的值并修改 -->
+
 <!-- <body ng-init = "name = { n: 'World'}">
 	<h1>Hello,{{name.n}}</h1>
 	<div ng-controller="HelloCtrl">
